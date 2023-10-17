@@ -5,9 +5,11 @@ import { Subscribe } from "./pages/Subscribe"
 
 export const Router = createBrowserRouter([
   {
+    errorElement: <ErrorPage />,
+  },
+  {
     path: "/",
     element: <Subscribe />,
-    errorElement: <ErrorPage />,
   },
   {
     path: "/event",
