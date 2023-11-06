@@ -1,0 +1,42 @@
+{
+  "name": "ignews",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "slicemachine": "start-slicemachine",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@prismicio/client": "^7.3.1",
+    "@prismicio/helpers": "^2.3.9",
+    "@prismicio/next": "^1.4.0",
+    "@prismicio/react": "^2.7.3",
+    "@types/node": "^20.8.9",
+    "@types/react": "^18.2.33",
+    "@types/react-dom": "^18.2.14",
+    "axios": "^1.6.0",
+    "dayjs": "^1.11.10",
+    "firebase": "^10.5.2",
+    "lucide-react": "^0.291.0",
+    "next": "^14.0.1",
+    "next-auth": "^4.24.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sass": "^1.69.5",
+    "stripe": "^14.2.0",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "@slicemachine/adapter-next": "^0.3.23",
+    "concurrently": "^8.2.2",
+    "eslint-config-next": "^14.0.1",
+    "slice-machine-ui": "^1.19.1"
+  }
+}
+
