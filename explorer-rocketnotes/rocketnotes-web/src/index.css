@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background_900: "#232129";
+    --background_800: "#312e38";
+    --background_700: "#3e3b47";
+    --white: "#f4ede8";
+    --orange: "#ff9000";
+    --gray_100: "#999591";
+    --gray_300: "#666360";
+    --red: "#ff002e";
+
+    --background: 258, 10%, 20%;
+    --foreground: 25, 35%, 93%;
+    --card: 255, 9%, 25%;
+    --card-foreground: 25, 35%, 93%;
+    --popover: 255, 9%, 25%;
+    --popover-foreground: 25, 35%, 93%;
+    --primary: 34, 100%, 50%;
+    --primary-foreground: 255, 11%, 15%;
+    --secondary: 255, 11%, 15%;
+    --secondary-foreground: 25, 35%, 93%;
+    --muted: 255, 11%, 15%;
+    --muted-foreground: 30, 4%, 58%;
+    --accent: 255, 11%, 15%;
+    --accent-foreground: 25, 35%, 93%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 25, 35%, 93%;
+    --border: 255, 11%, 15%;
+    --input: 255, 11%, 15%;
+    --ring: 30, 3%, 39%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.primaryFocus:focus-within svg {
+  color: theme("colors.primary.DEFAULT");
+}
+
+.destructiveFocus:focus-within svg {
+  color: theme("colors.destructive.DEFAULT");
+}
+
