@@ -24,6 +24,8 @@ beforeAll(async () => {
 
   process.env.DATABASE_URL = databaseURL
 
+  process.env.PRISMA_SCHEMA_DISABLE_ADVISORY_LOCK = '1'
+
   execSync('npx prisma migrate deploy')
 })
 
