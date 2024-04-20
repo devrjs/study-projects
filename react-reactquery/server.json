@@ -3,292 +3,350 @@
     {
       "title": "Python for Beginners",
       "slug": "python-for-beginners",
-      "amountOfVideos": 25
+      "amountOfVideos": 25,
+      "id": "2078"
     },
     {
       "title": "Web Development 101",
       "slug": "web-development-101",
-      "amountOfVideos": 30
+      "amountOfVideos": 30,
+      "id": "2d02"
     },
     {
       "title": "Machine Learning Fundamentals",
       "slug": "machine-learning-fundamentals",
-      "amountOfVideos": 40
+      "amountOfVideos": 40,
+      "id": "c9df"
     },
     {
       "title": "Data Structures and Algorithms",
       "slug": "data-structures-and-algorithms",
-      "amountOfVideos": 35
+      "amountOfVideos": 35,
+      "id": "8ffe"
     },
     {
       "title": "iOS App Development",
       "slug": "ios-app-development",
-      "amountOfVideos": 45
+      "amountOfVideos": 45,
+      "id": "480d"
     },
     {
       "title": "Digital Marketing Mastery",
       "slug": "digital-marketing-mastery",
-      "amountOfVideos": 50
+      "amountOfVideos": 50,
+      "id": "10a0"
     },
     {
       "title": "Graphic Design for Beginners",
       "slug": "graphic-design-for-beginners",
-      "amountOfVideos": 20
+      "amountOfVideos": 20,
+      "id": "d34b"
     },
     {
       "title": "Introduction to Blockchain",
       "slug": "introduction-to-blockchain",
-      "amountOfVideos": 15
+      "amountOfVideos": 15,
+      "id": "1e0f"
     },
     {
       "title": "Cybersecurity Essentials",
       "slug": "cybersecurity-essentials",
-      "amountOfVideos": 30
+      "amountOfVideos": 30,
+      "id": "22f8"
     },
     {
       "title": "Artificial Intelligence Basics",
       "slug": "artificial-intelligence-basics",
-      "amountOfVideos": 35
+      "amountOfVideos": 35,
+      "id": "f493"
     },
     {
       "title": "Business Analytics Fundamentals",
       "slug": "business-analytics-fundamentals",
-      "amountOfVideos": 40
+      "amountOfVideos": 40,
+      "id": "0206"
     },
     {
       "title": "Photography Masterclass",
       "slug": "photography-masterclass",
-      "amountOfVideos": 30
+      "amountOfVideos": 30,
+      "id": "4da9"
     },
     {
       "title": "UI/UX Design Principles",
       "slug": "ui-ux-design-principles",
-      "amountOfVideos": 25
+      "amountOfVideos": 25,
+      "id": "b9e4"
     },
     {
       "title": "Full Stack Web Development",
       "slug": "full-stack-web-development",
-      "amountOfVideos": 50
+      "amountOfVideos": 50,
+      "id": "0c6b"
     },
     {
       "title": "Project Management 101",
       "slug": "project-management-101",
-      "amountOfVideos": 35
+      "amountOfVideos": 35,
+      "id": "37ed"
     },
     {
       "title": "Java Programming for Beginners",
       "slug": "java-programming-for-beginners",
-      "amountOfVideos": 40
+      "amountOfVideos": 40,
+      "id": "f0e4"
     },
     {
       "title": "Social Media Marketing Strategies",
       "slug": "social-media-marketing-strategies",
-      "amountOfVideos": 30
+      "amountOfVideos": 30,
+      "id": "bfe8"
     },
     {
       "title": "Introduction to Data Science",
       "slug": "introduction-to-data-science",
-      "amountOfVideos": 45
+      "amountOfVideos": 45,
+      "id": "5906"
     },
     {
       "title": "Android App Development",
       "slug": "android-app-development",
-      "amountOfVideos": 50
+      "amountOfVideos": 50,
+      "id": "42d9"
     },
     {
       "title": "Search Engine Optimization",
       "slug": "search-engine-optimization",
-      "amountOfVideos": 35
+      "amountOfVideos": 35,
+      "id": "2036"
     },
     {
       "title": "User Interface Design",
       "slug": "user-interface-design",
-      "amountOfVideos": 30
+      "amountOfVideos": 30,
+      "id": "5fa4"
     },
     {
       "title": "C++ Programming Basics",
       "slug": "c-plus-plus-programming-basics",
-      "amountOfVideos": 40
+      "amountOfVideos": 40,
+      "id": "119f"
     },
     {
       "title": "Content Marketing Fundamentals",
       "slug": "content-marketing-fundamentals",
-      "amountOfVideos": 25
+      "amountOfVideos": 25,
+      "id": "5379"
     },
     {
       "title": "Deep Learning Concepts",
       "slug": "deep-learning-concepts",
-      "amountOfVideos": 35
+      "amountOfVideos": 35,
+      "id": "0194"
     },
     {
       "title": "Financial Accounting Principles",
       "slug": "financial-accounting-principles",
-      "amountOfVideos": 30
+      "amountOfVideos": 30,
+      "id": "7e2b"
     },
     {
       "title": "WordPress Website Development",
       "slug": "wordpress-website-development",
-      "amountOfVideos": 50
+      "amountOfVideos": 50,
+      "id": "8a79"
     },
     {
       "title": "Leadership and Management Skills",
       "slug": "leadership-and-management-skills",
-      "amountOfVideos": 40
+      "amountOfVideos": 40,
+      "id": "071a"
     },
     {
       "title": "Python for Data Analysis",
       "slug": "python-for-data-analysis",
-      "amountOfVideos": 45
+      "amountOfVideos": 45,
+      "id": "5e7e"
     },
     {
       "title": "E-commerce Business Strategies",
       "slug": "e-commerce-business-strategies",
-      "amountOfVideos": 30
+      "amountOfVideos": 30,
+      "id": "687c"
     },
     {
       "title": "Introduction to Artificial Intelligence",
       "slug": "introduction-to-artificial-intelligence",
-      "amountOfVideos": 35
+      "amountOfVideos": 35,
+      "id": "552f"
     },
     {
       "title": "Digital Advertising Techniques",
       "slug": "digital-advertising-techniques",
-      "amountOfVideos": 25
+      "amountOfVideos": 25,
+      "id": "02f9"
     },
     {
       "title": "Database Management Systems",
       "slug": "database-management-systems",
-      "amountOfVideos": 40
+      "amountOfVideos": 40,
+      "id": "e869"
     },
     {
       "title": "Copywriting for Marketing",
       "slug": "copywriting-for-marketing",
-      "amountOfVideos": 30
+      "amountOfVideos": 30,
+      "id": "8046"
     },
     {
       "title": "Computer Networking Fundamentals",
       "slug": "computer-networking-fundamentals",
-      "amountOfVideos": 35
+      "amountOfVideos": 35,
+      "id": "ded8"
     },
     {
       "title": "React Native App Development",
       "slug": "react-native-app-development",
-      "amountOfVideos": 50
+      "amountOfVideos": 50,
+      "id": "5165"
     },
     {
       "title": "Strategic Business Planning",
       "slug": "strategic-business-planning",
-      "amountOfVideos": 40
+      "amountOfVideos": 40,
+      "id": "8618"
     },
     {
       "title": "Data Visualization Techniques",
       "slug": "data-visualization-techniques",
-      "amountOfVideos": 45
+      "amountOfVideos": 45,
+      "id": "597a"
     },
     {
       "title": "Email Marketing Strategies",
       "slug": "email-marketing-strategies",
-      "amountOfVideos": 30
+      "amountOfVideos": 30,
+      "id": "f643"
     },
     {
       "title": "Introduction to Cloud Computing",
       "slug": "introduction-to-cloud-computing",
-      "amountOfVideos": 35
+      "amountOfVideos": 35,
+      "id": "e615"
     },
     {
       "title": "UI/UX Design for Mobile Apps",
       "slug": "ui-ux-design-for-mobile-apps",
-      "amountOfVideos": 25
+      "amountOfVideos": 25,
+      "id": "fa1e"
     },
     {
       "title": "Object-Oriented Programming",
       "slug": "object-oriented-programming",
-      "amountOfVideos": 40
+      "amountOfVideos": 40,
+      "id": "8428"
     },
     {
       "title": "Content Strategy and Planning",
       "slug": "content-strategy-and-planning",
-      "amountOfVideos": 30
+      "amountOfVideos": 30,
+      "id": "c26f"
     },
     {
       "title": "Cybersecurity Threats and Defense",
       "slug": "cybersecurity-threats-and-defense",
-      "amountOfVideos": 35
+      "amountOfVideos": 35,
+      "id": "4a74"
     },
     {
       "title": "Angular Web Development",
       "slug": "angular-web-development",
-      "amountOfVideos": 50
+      "amountOfVideos": 50,
+      "id": "d063"
     },
     {
       "title": "Effective Communication Skills",
       "slug": "effective-communication-skills",
-      "amountOfVideos": 40
+      "amountOfVideos": 40,
+      "id": "72a4"
     },
     {
       "title": "Data Mining and Analysis",
       "slug": "data-mining-and-analysis",
-      "amountOfVideos": 45
+      "amountOfVideos": 45,
+      "id": "a838"
     },
     {
       "title": "Social Media Advertising",
       "slug": "social-media-advertising",
-      "amountOfVideos": 30
+      "amountOfVideos": 30,
+      "id": "c611"
     },
     {
       "title": "Big Data Analytics Fundamentals",
       "slug": "big-data-analytics-fundamentals",
-      "amountOfVideos": 35
+      "amountOfVideos": 35,
+      "id": "7221"
     },
     {
       "title": "User Experience Research",
       "slug": "user-experience-research",
-      "amountOfVideos": 25
+      "amountOfVideos": 25,
+      "id": "7aec"
     },
     {
       "title": "Python Web Scraping",
       "slug": "python-web-scraping",
-      "amountOfVideos": 40
+      "amountOfVideos": 40,
+      "id": "7651"
     },
     {
       "title": "Marketing Analytics Strategies",
       "slug": "marketing-analytics-strategies",
-      "amountOfVideos": 30
+      "amountOfVideos": 30,
+      "id": "82bd"
     },
     {
       "title": "Network Security Fundamentals",
       "slug": "network-security-fundamentals",
-      "amountOfVideos": 35
+      "amountOfVideos": 35,
+      "id": "6923"
     },
     {
       "title": "iOS App Development with Swift",
       "slug": "ios-app-development-with-swift",
-      "amountOfVideos": 50
+      "amountOfVideos": 50,
+      "id": "1eaa"
     },
     {
       "title": "Project Management Principles",
       "slug": "project-management-principles",
-      "amountOfVideos": 40
+      "amountOfVideos": 40,
+      "id": "62bb"
     },
     {
       "title": "Data Analysis with R",
       "slug": "data-analysis-with-r",
-      "amountOfVideos": 45
+      "amountOfVideos": 45,
+      "id": "24df"
     },
     {
       "title": "Inbound Marketing Strategies",
       "slug": "inbound-marketing-strategies",
-      "amountOfVideos": 30
+      "amountOfVideos": 30,
+      "id": "d591"
     },
     {
       "title": "Cloud Computing Concepts",
       "slug": "cloud-computing-concepts",
-      "amountOfVideos": 35
+      "amountOfVideos": 35,
+      "id": "d50e"
     },
     {
       "title": "User Interface Design Principles",
       "slug": "user-interface-design-principles",
-      "amountOfVideos": 25
+      "amountOfVideos": 25,
+      "id": "e664"
     },
     {
       "id": "f205",
@@ -318,6 +376,12 @@
       "id": "3e8f",
       "title": "testeopqiwjdrfpqejdk",
       "slug": "testeopqiwjdrfpqejdk",
+      "amountOfVideos": 0
+    },
+    {
+      "id": "aa4c",
+      "title": "test2",
+      "slug": "test2",
       "amountOfVideos": 0
     }
   ]

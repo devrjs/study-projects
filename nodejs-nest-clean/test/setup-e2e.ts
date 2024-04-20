@@ -1,6 +1,6 @@
 import { config } from 'dotenv'
 import { PrismaClient } from '@prisma/client'
-import { randomUUID } from 'crypto'
+import { randomUUID } from 'node:crypto'
 import { execSync } from 'child_process'
 import { DomainEvents } from '@/core/events/domain-events'
 import { Redis } from 'ioredis'
