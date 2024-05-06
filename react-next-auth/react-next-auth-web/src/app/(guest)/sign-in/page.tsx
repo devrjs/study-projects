@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { UserAuthForm } from './_components/user-auth-form'
+import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'Authentication',
@@ -25,14 +26,25 @@ export default function AuthenticationPage() {
           </blockquote>
         </div> */}
       </div>
-      <div className="mx-auto flex h-full w-full flex-col justify-center space-y-6 border bg-[hsl(250_10%_8%)] px-12 py-7 shadow sm:h-fit sm:w-96 sm:rounded-3xl">
-        <div className="flex flex-col space-y-2">
-          <h1 className="text-2xl font-semibold tracking-tight">Sign In</h1>
-          <p className="text-sm text-muted-foreground">
-            Digite seu e-mail abaixo para entrar
-          </p>
+      <div className="mx-auto flex flex-col space-y-4">
+        <div className="flex h-full w-full flex-col justify-center space-y-6 border bg-[hsl(250_10%_8%)] px-12 py-7 shadow sm:h-fit sm:w-96 sm:rounded-3xl">
+          <div className="flex flex-col space-y-2">
+            <h1 className="text-2xl font-semibold tracking-tight">Sign In</h1>
+            <p className="text-sm text-muted-foreground">
+              Digite seu e-mail abaixo para entrar
+            </p>
+          </div>
+          <UserAuthForm />
         </div>
-        <UserAuthForm />
+        <p className="flex w-full justify-center text-sm text-muted-foreground">
+          Não possui conta?&nbsp;
+          <Link
+            href="/sign-up"
+            className="text-primary brightness-125 hover:underline"
+          >
+            Cadastre-se
+          </Link>
+        </p>
       </div>
     </div>
   )

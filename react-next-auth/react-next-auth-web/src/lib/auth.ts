@@ -21,6 +21,7 @@ export const { handlers, auth } = nextAuth({
           body: JSON.stringify({
             email: credentials?.email,
             password: credentials?.password,
+            provider: 'credentials',
           }),
         })
 

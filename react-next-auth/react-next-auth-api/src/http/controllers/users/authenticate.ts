@@ -1,3 +1,4 @@
+import { PrismaAccountsRepository } from '@/db/prisma/repositories/prisma-accounts-repository'
 import { PrismaUsersRepository } from '@/db/prisma/repositories/prisma-users-repository'
 import { AuthenticateUserUseCase } from '@/use-cases/authenticate-user'
 import { InvalidCredentialsError } from '@/use-cases/errors/invalid-credentials-error'
@@ -10,21 +11,37 @@ export async function authenticate(
   reply: FastifyReply,
 ) {
   const authenticateBodySchema = z.object({
-    email: z.string().email(),
-    password: z.string().min(6),
+    email: z.string().email().optional(),
+    password: z.string().min(6).optional(),
+    provider: z.enum(['credentials', 'google', 'github']),
+    code: z.string().optional(),
   })
 
-  const { email, password } = authenticateBodySchema.parse(request.body)
+  const { email, password, provider, code } = authenticateBodySchema.parse(
+    request.body,
+  )
 
   try {
     const usersRepository = new PrismaUsersRepository()
-    const authenticateUseCase = new AuthenticateUserUseCase(usersRepository)
+    const accountsRepository = new PrismaAccountsRepository()
+    const authenticateUseCase = new AuthenticateUserUseCase(
+      usersRepository,
+      accountsRepository,
+    )
 
-    const { user } = await authenticateUseCase.execute({ email, password })
+    const { user } = await authenticateUseCase.execute({
+      email,
+      password,
+      provider,
+      code,
+    })
 
     const access_token = await reply.jwtSign(
       {
         tokenType: 'access',
+        name: user.name,
+        email: user.email,
+        image: user.image,
       },
       {
         sign: {
@@ -56,17 +73,7 @@ export async function authenticate(
       })
       .status(200)
       .send({
-        user: {
-          id: user.id,
-          name: user.name,
-          email: user.email,
-          picture: user.image,
-        },
-        backendTokens: {
-          access_token,
-          refresh_token: refreshToken,
-          expiresIn: dayjs().add(15, 'seconds').toDate(),
-        },
+        access_token,
       })
   } catch (error) {
     if (error instanceof InvalidCredentialsError) {

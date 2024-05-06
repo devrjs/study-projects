@@ -1,6 +1,5 @@
 import { PrismaUsersRepository } from '@/db/prisma/repositories/prisma-users-repository'
 import { GetUserProfileUseCase } from '@/use-cases/get-user-profile'
-import dayjs from 'dayjs'
 import { FastifyReply, FastifyRequest } from 'fastify'
 
 export async function refresh(request: FastifyRequest, reply: FastifyReply) {
@@ -22,10 +21,10 @@ export async function refresh(request: FastifyRequest, reply: FastifyReply) {
 
     const access_token = await reply.jwtSign(
       {
+        tokenType: 'access',
         name: user.name,
         email: user.email,
         image: user.image,
-        tokenType: 'access',
       },
       {
         sign: {
@@ -37,7 +36,6 @@ export async function refresh(request: FastifyRequest, reply: FastifyReply) {
 
     return reply.status(200).send({
       access_token,
-      expiresIn: dayjs().add(15, 'seconds').toDate(),
     })
   } catch (error) {
     return reply.status(401).send({ message: 'Unauthorized.' })

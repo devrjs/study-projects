@@ -10,6 +10,9 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { useRouter } from 'next/navigation'
 import { signIn } from 'next-auth/react'
+import Image from 'next/image'
+import googleLogo from '@/assets/logo-google.svg'
+import Link from 'next/link'
 
 const authSchema = z.object({
   email: z.string().email(),
@@ -19,7 +22,9 @@ const authSchema = z.object({
 type AuthSchema = z.infer<typeof authSchema>
 
 export function UserAuthForm() {
-  const [isLoading, setIsLoading] = useState<'' | 'credentials' | 'github'>('')
+  const [isLoading, setIsLoading] = useState<
+    '' | 'credentials' | 'google' | 'github'
+  >('')
   const router = useRouter()
 
   const { register, handleSubmit, formState } = useForm<AuthSchema>({
@@ -39,6 +44,8 @@ export function UserAuthForm() {
       setIsLoading('')
     }
   }
+
+  async function handleGoogleSignIn() {}
 
   async function handleGithubSignIn() {
     setIsLoading('github')
@@ -107,21 +114,50 @@ export function UserAuthForm() {
           </span>
         </div>
       </div>
-      <Button
-        variant="outline"
-        type="button"
-        onClick={handleGithubSignIn}
-        disabled={!!isLoading || formState.isSubmitting}
-      >
-        {isLoading === 'github' ? (
-          <span className="loader size-4 animate-spin" />
-        ) : (
-          <>
-            <GitHubLogoIcon className="mr-2 h-4 w-4" />
-            GitHub
-          </>
-        )}
-      </Button>
+
+      <div className="grid gap-2">
+        <Button
+          variant="outline"
+          type="button"
+          onClick={handleGoogleSignIn}
+          disabled={true /* !!isLoading || formState.isSubmitting */}
+        >
+          {isLoading === 'google' ? (
+            <span className="loader size-4 animate-spin" />
+          ) : (
+            <>
+              <Image
+                src={googleLogo}
+                width={0}
+                height={0}
+                alt="Logo do google"
+                className="mr-2 size-4"
+              />
+              Entrar com Google
+            </>
+          )}
+        </Button>
+        <Button
+          variant="outline"
+          type="button"
+          onClick={handleGithubSignIn}
+          disabled={!!isLoading || formState.isSubmitting}
+          asChild
+        >
+          <Link
+            href={`https://github.com/login/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_GITHUB_CLIENT_ID}`}
+          >
+            {isLoading === 'github' ? (
+              <span className="loader size-4 animate-spin" />
+            ) : (
+              <>
+                <GitHubLogoIcon className="mr-2 h-4 w-4" />
+                Entrar com GitHub
+              </>
+            )}
+          </Link>
+        </Button>
+      </div>
     </div>
   )
 }

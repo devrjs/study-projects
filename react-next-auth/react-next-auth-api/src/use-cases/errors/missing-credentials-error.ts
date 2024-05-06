@@ -1,5 +1,5 @@
 export class MissingCredentialsError extends Error {
   constructor() {
-    super('Name or password are missing.')
+    super('Email, name or password are missing.')
   }
 }

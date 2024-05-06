@@ -7,6 +7,8 @@ export const envSchema = z.object({
   JWT_PRIVATE_KEY: z.string(),
   JWT_PUBLIC_KEY: z.string(),
   PORT: z.coerce.number().default(3333),
+  GITHUB_CLIENT_ID: z.string(),
+  GITHUB_CLIENT_SECRET: z.string(),
 })
 
 const _env = envSchema.safeParse(process.env)

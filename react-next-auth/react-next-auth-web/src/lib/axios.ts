@@ -3,7 +3,7 @@ import { auth } from './auth'
 import { getCookie } from 'cookies-next'
 
 export const apiClient = axios.create({
-  baseURL: 'http://localhost:3333',
+  baseURL: process.env.BACKEND_URL,
   withCredentials: true,
 })
 
@@ -14,7 +14,7 @@ apiClient.interceptors.request.use(async (request) => {
 })
 
 export const api = axios.create({
-  baseURL: 'http://localhost:3333',
+  baseURL: process.env.BACKEND_URL,
   withCredentials: true,
 })
 
