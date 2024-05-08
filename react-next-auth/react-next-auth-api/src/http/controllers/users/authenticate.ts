@@ -36,21 +36,6 @@ export async function authenticate(
       code,
     })
 
-    const access_token = await reply.jwtSign(
-      {
-        tokenType: 'access',
-        name: user.name,
-        email: user.email,
-        image: user.image,
-      },
-      {
-        sign: {
-          sub: user.id,
-          expiresIn: 15,
-        },
-      },
-    )
-
     const refreshToken = await reply.jwtSign(
       {
         tokenType: 'refresh',
@@ -59,6 +44,22 @@ export async function authenticate(
         sign: {
           sub: user.id,
           expiresIn: '7d',
+        },
+      },
+    )
+
+    const access_token = await reply.jwtSign(
+      {
+        tokenType: 'access',
+        name: user.name,
+        email: user.email,
+        image: user.image,
+        refresh_token: refreshToken,
+      },
+      {
+        sign: {
+          sub: user.id,
+          expiresIn: 15,
         },
       },
     )
@@ -74,6 +75,7 @@ export async function authenticate(
       .status(200)
       .send({
         access_token,
+        refreshToken,
       })
   } catch (error) {
     if (error instanceof InvalidCredentialsError) {

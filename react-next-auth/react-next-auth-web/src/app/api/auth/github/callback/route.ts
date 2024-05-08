@@ -10,15 +10,15 @@ export async function GET(request: NextRequest) {
     code,
   })
 
-  const { access_token: accessToken } = authResponse.data.backendTokens
+  const { access_token: accessToken } = authResponse.data
 
-  const redirectURL = new URL('/dashboard', request.url)
+  const redirectURL = new URL('/sign-in/authenticate', request.url)
 
   const cookieExpiresInSeconds = 60 * 60 * 24 * 30
 
   return NextResponse.redirect(redirectURL, {
     headers: {
-      'Set-Cookie': `token=${accessToken}; Path=/; max-age=${cookieExpiresInSeconds};`,
+      'Set-Cookie': `accessToken=${accessToken}; Path=/; max-age=${cookieExpiresInSeconds};`,
     },
   })
 }

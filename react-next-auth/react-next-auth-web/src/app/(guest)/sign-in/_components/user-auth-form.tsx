@@ -13,6 +13,7 @@ import { signIn } from 'next-auth/react'
 import Image from 'next/image'
 import googleLogo from '@/assets/logo-google.svg'
 import Link from 'next/link'
+import Cookies from 'js-cookie'
 
 const authSchema = z.object({
   email: z.string().email(),
@@ -35,7 +36,20 @@ export function UserAuthForm() {
     setIsLoading('credentials')
 
     try {
-      await signIn('credentials', { email, password, redirect: false })
+      const response = await api.post('/sessions', {
+        email,
+        password,
+        provider: 'credentials',
+      })
+
+      const { access_token: accessToken } = response.data
+
+      Cookies.set('accessToken', accessToken)
+
+      await signIn('credentials', {
+        accessToken,
+        redirect: false,
+      })
 
       router.push('/dashboard')
     } catch (error) {

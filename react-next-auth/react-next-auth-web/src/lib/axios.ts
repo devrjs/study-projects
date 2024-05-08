@@ -1,29 +1,30 @@
 import axios from 'axios'
 import { auth } from './auth'
-import { getCookie } from 'cookies-next'
-
-export const apiClient = axios.create({
-  baseURL: process.env.BACKEND_URL,
-  withCredentials: true,
-})
-
-apiClient.interceptors.request.use(async (request) => {
-  request.headers.Authorization = `Bearer ${getCookie('accessToken')}`
-
-  return request
-})
 
 export const api = axios.create({
-  baseURL: process.env.BACKEND_URL,
-  withCredentials: true,
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  // withCredentials: true,
 })
 
-api.interceptors.request.use(async (request) => {
-  const session = await auth()
+api.interceptors.request.use(
+  async (request) => {
+    let token
 
-  if (session) {
-    request.headers.Authorization = `Bearer ${session?.backendTokens.access_token}`
-  }
+    if (typeof window === 'undefined') {
+      // server side
+      const session = await auth()
+      token = session?.backendTokens.access_token
+    } else {
+      // client side
+      const { default: clientCookies } = await import('js-cookie')
+      token = clientCookies.get('accessToken')
+    }
 
-  return request
-})
+    if (token) {
+      request.headers.Authorization = `Bearer ${token}`
+    }
+
+    return request
+  },
+  (error) => Promise.reject(error),
+)

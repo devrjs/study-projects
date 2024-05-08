@@ -1,36 +1,54 @@
 import nextAuth from 'next-auth'
 import { JWT } from 'next-auth/jwt'
 import Credentials from 'next-auth/providers/credentials'
-import { setCookie } from './cookies'
+import { jwtDecode } from 'jwt-decode'
+import { z } from 'zod'
+import dayjs from 'dayjs'
+
+interface AccessToken {
+  tokenType: string
+  name: string
+  email: string
+  image: string
+  refresh_token: string
+  sub: string
+  iat: number
+  exp: number
+}
+const signInSchema = z.object({
+  accessToken: z.string(),
+})
 
 export const { handlers, auth } = nextAuth({
   providers: [
     Credentials({
       name: 'credentials',
       credentials: {
-        email: { label: 'email', type: 'text' },
-        password: { label: 'password', type: 'password' },
+        accessToken: {},
       },
 
       async authorize(credentials) {
-        const response = await fetch(`${process.env.BACKEND_URL}/sessions`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            email: credentials?.email,
-            password: credentials?.password,
-            provider: 'credentials',
-          }),
-        })
+        const { accessToken } = await signInSchema.parseAsync(credentials)
 
-        const user = await response.json()
+        const data = jwtDecode<AccessToken>(accessToken)
 
-        setCookie('accessToken', user.backendTokens.access_token)
-
-        if (!user) {
+        if (!data) {
           return null
+        }
+
+        const user = {
+          id: data.sub,
+          user: {
+            id: data.sub,
+            name: data.name,
+            email: data.email,
+            image: data.image,
+          },
+          backendTokens: {
+            access_token: accessToken,
+            refresh_token: data.refresh_token,
+            expiresIn: new Date(data.exp * 1000),
+          },
         }
 
         return user
@@ -41,7 +59,7 @@ export const { handlers, auth } = nextAuth({
     async jwt({ token, user }) {
       if (user) return { ...token, ...user }
 
-      if (new Date().getTime() < token.backendTokens.expiresIn) return token
+      if (dayjs().isBefore(token.backendTokens.expiresIn)) return token
 
       return await refreshToken(token)
     },
@@ -57,25 +75,37 @@ export const { handlers, auth } = nextAuth({
 
 // ================= REFRESH_TOKEN =================
 async function refreshToken(token: JWT): Promise<JWT> {
-  const response = await fetch(`${process.env.BACKEND_URL}/token/refresh`, {
-    method: 'PATCH',
-    headers: {
-      'Content-Type': 'application/json',
-      Cookie: `refreshToken=${token.backendTokens.refresh_token}`,
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/token/refresh`,
+    {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Cookie: `refreshToken=${token.backendTokens.refresh_token}`,
+      },
+      body: JSON.stringify({}),
     },
-    body: JSON.stringify({}),
-  })
+  )
 
   const newToken = await response.json()
 
-  setCookie('accessToken', newToken.access_token)
+  const { cookies: serverCookies } = await import('next/headers')
+  serverCookies().set('accessToken', newToken.access_token)
+
+  const data = jwtDecode<AccessToken>(newToken.access_token)
 
   return {
     ...token,
+    user: {
+      ...token.user,
+      name: data.name,
+      email: data.email,
+      image: data.image,
+    },
     backendTokens: {
+      ...token.backendTokens,
       access_token: newToken.access_token,
-      refresh_token: token.backendTokens.refresh_token,
-      expiresIn: newToken.expiresIn,
+      expiresIn: new Date(data.exp * 1000),
     },
   }
 }

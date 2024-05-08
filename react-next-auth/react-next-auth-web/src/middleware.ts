@@ -4,7 +4,8 @@ const publicRoutes = ['/', '/sign-in', '/sign-up']
 const protectedRoutes = ['/dashboard']
 
 export function middleware(request: NextRequest) {
-  const token = request.cookies.get('accessToken')?.value
+  // const token = request.cookies.get('accessToken')?.value
+  const token = request.cookies.get('authjs.session-token')?.value
   const pathname = request.nextUrl.pathname
 
   // redirect to APP when authenticated

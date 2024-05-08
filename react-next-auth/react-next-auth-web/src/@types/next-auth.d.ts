@@ -7,13 +7,14 @@ declare module 'next-auth' {
       id: string
       name: string
       email: string
+      image: string
       emailVerified: Date
     }
 
     backendTokens: {
       access_token: string
       refresh_token: string
-      expiresIn: number
+      expiresIn: Date
     }
   }
 }
@@ -24,13 +25,14 @@ declare module 'next-auth/jwt' {
       id: string
       name: string
       email: string
+      image: string
       emailVerified: Date
     }
 
     backendTokens: {
       access_token: string
       refresh_token: string
-      expiresIn: number
+      expiresIn: Date
     }
   }
 }
